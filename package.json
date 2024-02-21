@@ -1,12 +1,16 @@
 {
   "name": "fulfilldassignment",
-  "version": "1.0.0",
-  "description": "Probability CLI",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.spec.js"
+    "start": "node ./bin/www",
+    "test": "jasmine",
+    "basic": "node index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "~4.16.1"
+  },
+  "devDependencies": {
+    "jasmine": "^5.1.0"
+  }
 }
