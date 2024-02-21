@@ -1,8 +1,8 @@
-const index = require('../index');
+const {calculateProbabilities} = require('../helper');
 
 describe('index.js tests', () => {
   it('calculateProbabilities function should return an array of probabilities', () => {
-    const probabilities = index.calculateProbabilities();
+    const probabilities = calculateProbabilities();
     expect(Array.isArray(probabilities)).toBe(true);
     expect(probabilities.length).toBe(94); // From 6 to 99 inclusive is 94 numbers
     probabilities.forEach(probability => {
