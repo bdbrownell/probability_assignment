@@ -33,13 +33,17 @@ for API endpoint solution, a web server can be started with
 npm start
 ```
 
-this will start a web server using Express that will listen on port 8080.
+this will start a web server using Express that will listen on port 3000.
 
 - GET request will return the array of probabilities
 - including a header 'k' on the request will return a single probability for the K value provided.
 
+example request using curl
+
 ```console
-curl localhost:8080 
+curl --header "k: 10" localhost:3000
+
+0.190000
 ```
 
 the jasmine library is used for unit tests and can be ran using
