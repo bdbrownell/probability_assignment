@@ -1,9 +1,35 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", function (req, res, next) {
+  const { calculateProbabilities } = require("../helper");
+  const k = +req.header("k");
+  const probabilities = calculateProbabilities();
+  let returnBody = probabilities;
+
+  if (req.body && req.body.length > 0) {
+    res.status(400).send("Request cannot contain body");
+    next();
+  }
+
+  //if k is was provided, validate the value first
+  if (k != undefined) {
+    if (Number.isFinite(k) === false) {
+      res.status(400).send("k must be a number");
+      next();
+    }
+    if (k < 6 && k > 99) {
+      res.status(400).send("k must be between 6 and 99");
+      next();
+    }
+    //need to adjust index to match probability - array starts at 0 but k starts at 6.
+    returnBody = probabilities[k - 6];
+  }
+
+  res.status(200).send(returnBody);
+
+  next();
 });
 
 module.exports = router;
