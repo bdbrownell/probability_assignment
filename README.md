@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository contains a simple NodeJS program that calculates the probabilities of rolling a K-sided die and having it land on K for a series of rolls.
+This repository contains a simple NodeJS program that calculates the probabilities of rolling a K-sided die and having it land on K for a series of rolls between two people.
 
 ## Installation
 
@@ -46,7 +46,8 @@ curl --header "k: 10" localhost:3000
 0.190000
 ```
 
-the jasmine library is used for unit tests and can be ran using
+
+the jasmine library is used for unit tests. Tests can be ran using
 
 ```console
 npm test
