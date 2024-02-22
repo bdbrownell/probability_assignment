@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
   //isNaN is used because of the conversion to number => +undefined = NaN
   
   if (isNaN(k) === false){
-    console.log(k)
+    //console.log(k)
     if (Number.isFinite(k) === false) {
       res.status(400).send("k must be a number");
       next();
